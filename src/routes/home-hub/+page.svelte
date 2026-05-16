@@ -69,26 +69,27 @@
     <ScreenshotCarousel images={screenshots} />
   </section>
 
-  <!-- Walkthrough video -->
+  <!-- Walkthrough video — placeholder until recorded; see docs/RECORDING_WALKTHROUGH.md -->
   <section class="section">
     <div class="eyebrow">Walkthrough</div>
     <h2>60 seconds of the apartment behaving.</h2>
     <p class="section-lede">
-      Mode-switching, light response, the journal page, and the analytics SectorBoard — recorded straight off
-      the kiosk.
+      Mode-switching, light response, the journal page, and the analytics SectorBoard — straight off the kiosk.
     </p>
     <GlassCard padding="0">
-      <div class="video-wrap">
-        <video
-          src="/home-hub/walkthrough.mp4"
-          poster="/home-hub/gameday-final.jpg"
-          controls
-          muted
-          playsinline
-          preload="metadata"
-        >
-          Your browser doesn't support embedded video. <a href="/home-hub/walkthrough.mp4">Download the walkthrough.</a>
-        </video>
+      <div class="video-placeholder">
+        <img
+          src="/home-hub/gameday-final.jpg"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="overlay">
+          <div class="badge">Recording in progress</div>
+          <div class="title">Walkthrough video</div>
+          <div class="hint">A live capture of the dashboard is being recorded — check back soon.</div>
+        </div>
       </div>
     </GlassCard>
   </section>
@@ -245,18 +246,88 @@
     font-size: 1.05rem;
   }
 
-  .video-wrap {
-    background: var(--bg-secondary);
+  .video-placeholder {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     border-radius: inherit;
     overflow: hidden;
+    background: var(--bg-secondary);
   }
 
-  .video-wrap video {
+  .video-placeholder img {
     width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 16 / 9;
+    height: 100%;
     object-fit: cover;
+    display: block;
+    filter: blur(8px) saturate(0.7);
+    transform: scale(1.05);
+    opacity: 0.55;
+  }
+
+  .video-placeholder .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+    padding: 24px;
+    background: linear-gradient(
+      180deg,
+      rgba(8, 8, 12, 0.45) 0%,
+      rgba(8, 8, 12, 0.7) 100%
+    );
+  }
+
+  .video-placeholder .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: var(--accent-glow);
+    color: var(--text-primary);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .video-placeholder .badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    animation: placeholder-pulse 2.4s ease-in-out infinite;
+  }
+
+  .video-placeholder .title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+  }
+
+  .video-placeholder .hint {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    max-width: 480px;
+    line-height: 1.5;
+  }
+
+  @keyframes placeholder-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .video-placeholder .badge::before { animation: none; }
   }
 
   .deep-dives {

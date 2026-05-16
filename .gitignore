@@ -12,3 +12,4 @@ Thumbs.db
 !.vscode/extensions.json
 *.log
 .wrangler
+scripts/.fonts-cache

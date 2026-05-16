@@ -1,0 +1,37 @@
+/* Design tokens mirrored from home-hub frontend (frontend-svelte/src/lib/styles/global.css)
+   so the portfolio reads as a sibling to the dashboard. */
+
+:root {
+  --bg-primary: #08080c;
+  --bg-secondary: #0d0d14;
+  --bg-card: rgba(10, 10, 15, 0.45);
+  --bg-card-hover: rgba(15, 15, 22, 0.6);
+
+  --text-primary: #e8e9ed;
+  --text-secondary: #8b8d97;
+  --text-muted: #7c7e8a;
+
+  --accent: #4a6cf7;
+  --accent-glow: rgba(74, 108, 247, 0.2);
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --radius-lg: 20px;
+
+  --glass-blur: blur(12px);
+  --glass-saturate: saturate(1.1);
+
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --max-content: 1100px;
+  --max-narrow: 760px;
+
+  color-scheme: dark;
+}

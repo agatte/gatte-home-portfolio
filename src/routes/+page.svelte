@@ -22,7 +22,7 @@
     <h1>Anthony Gatte</h1>
     <p class="lede">
       I build automation and applied ML. Currently running a smart-home that
-      controls my apartment from a Latitude in the corner.
+      controls my apartment from a laptop in the corner.
     </p>
     <div class="cta-row">
       <a href="/home-hub" class="btn primary">Read the Home Hub case study →</a>

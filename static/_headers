@@ -1,0 +1,33 @@
+# Cloudflare Pages security headers for gatte-home.com.
+#
+# Conservative defaults — tighten over time. CSP rationale:
+#   - default-src 'self' = same-origin only baseline
+#   - style-src 'unsafe-inline' = Svelte's `style:foo={bar}` attribute
+#     emits inline style="..." attributes; without this they're blocked
+#   - style-src + font-src whitelist Google Fonts (the one external resource
+#     this site loads — see src/app.html)
+#   - script-src 'self' 'unsafe-inline' = SvelteKit emits an inline <script>
+#     with hydration JSON per page. 'unsafe-inline' is acceptable here because
+#     the 2026-05-17 audit confirmed zero XSS sinks (no {@html}, no innerHTML,
+#     no user input rendered, no forms). Tighten later by enabling SvelteKit's
+#     kit.csp = { mode: 'hash', directives: { ... } } so the build emits per-
+#     page sha256 hashes; switching to header-only CSP would lose frame-
+#     ancestors so SvelteKit's meta-tag CSP and this _headers CSP need to
+#     stay aligned if you adopt that.
+#   - img-src 'self' data: blob: = OG image, generated icons, future blob URLs
+#   - media-src 'self' = the home-hub walkthrough.mp4
+#   - object-src/base-uri/form-action/frame-ancestors close legacy holes
+#
+# HSTS with includeSubDomains is the load-bearing one for this site —
+# gatte-home.com shares the apex with home-hub.gatte-home.com (the
+# apartment-automation Cloudflare Tunnel). includeSubDomains forces that
+# subdomain to HTTPS-only too, preventing a protocol-downgrade attack
+# from working as a stepping stone into the home-hub API surface.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'self' data: https://fonts.gstatic.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'

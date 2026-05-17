@@ -21,8 +21,8 @@
     <div class="eyebrow">Portfolio · 2026</div>
     <h1>Anthony Gatte</h1>
     <p class="lede">
-      Building automation tools for logistics by day, and a smart-home that runs itself by night.
-      I like systems that quietly do the right thing without being asked.
+      I build systems that quietly do the right thing without being asked.
+      Automation, applied ML, and a smart-home that runs itself.
     </p>
     <div class="cta-row">
       <a href="/home-hub" class="btn primary">Read the Home Hub case study →</a>
@@ -36,10 +36,9 @@
     <div class="eyebrow">About</div>
     <h2>Practical systems, end to end.</h2>
     <p>
-      I'm a Logistics Account Executive at <strong>TQL</strong> — the day job is pricing freight and managing
-      relationships. The side practice is automation: prospecting tools, data pipelines, and a year-long buildout
-      of an apartment-scale command center that listens to my voice, watches the room with a camera, and chooses
-      what the lights and music should do next.
+      I build automation tools, ship them to production, and keep them running. The current focus is the
+      <strong>Home Hub</strong> — a year-long buildout of an apartment-scale command center that listens
+      to my voice, watches the room with a camera, and chooses what the lights and music should do next.
     </p>
     <p>
       Stack-wise I live in Python and SvelteKit, ship to FastAPI and SQLite, and lean on classical ML

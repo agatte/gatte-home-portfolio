@@ -23,7 +23,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="name">Anthony Gatte</div>
-        <div class="role">Logistics × automation × applied ML</div>
+        <div class="role">Automation · applied ML · smart-home</div>
       </div>
       <div class="footer-links">
         <a href="https://github.com/agatte" target="_blank" rel="noopener">GitHub</a>

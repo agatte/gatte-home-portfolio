@@ -168,7 +168,7 @@ function buildTree() {
             maxWidth: 920
           }
         },
-        'Building automation tools for logistics, and a smart-home that runs itself.'
+        'Automation, applied ML, and a smart-home that runs itself.'
       )
     ),
     // Footer chip row
@@ -184,7 +184,7 @@ function buildTree() {
       chip('Python · FastAPI'),
       chip('SvelteKit'),
       chip('Applied ML'),
-      chip('Smart home')
+      chip('Smart-home')
     )
   );
 }

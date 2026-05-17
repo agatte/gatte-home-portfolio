@@ -16,18 +16,18 @@
   const screenshots = [
     {
       src: '/home-hub/gameday-final.jpg',
-      alt: 'Home Hub dashboard during a Colts game — three-zone celebration palette',
-      caption: 'Game Day mode: Colts-blue accents on the desk lamp, warm amber kitchen pair, celebration sequences fire on scoring plays.'
+      alt: 'Home Hub dashboard during a Colts game. Three-zone celebration palette.',
+      caption: 'Game Day mode. Colts-blue accents on the desk lamp, warm amber kitchen pair, celebration sequences fire on scoring plays.'
     },
     {
       src: '/home-hub/gameday-skybox.jpg',
-      alt: 'Threlte 3D football field with skybox in the Game Day dashboard',
-      caption: 'Game Day route renders a live Threlte 3D field — yard markers, end zones, and a generated stadium skybox.'
+      alt: 'Threlte 3D football field with skybox in the Game Day dashboard.',
+      caption: 'Game Day route renders a live Threlte 3D field. Yard markers, end zones, and a generated stadium skybox.'
     },
     {
       src: '/home-hub/gameday-prod.jpg',
-      alt: 'Home Hub dashboard production build, final polish',
-      caption: 'Production build on the dedicated 1080p Latitude kiosk — glass-card widgets, mode overlay, vital strip.'
+      alt: 'Home Hub dashboard production build, final polish.',
+      caption: 'Production build on the dedicated 1080p Latitude kiosk. Glass-card widgets, mode overlay, vital strip.'
     }
   ];
 
@@ -42,8 +42,8 @@
 </script>
 
 <svelte:head>
-  <title>Home Hub — Anthony Gatte</title>
-  <meta name="description" content="A year-long buildout of an always-on apartment command center: Hue + Sonos, ML autonomy, custom Alexa Skill, Game Day celebrations." />
+  <title>Home Hub | Anthony Gatte</title>
+  <meta name="description" content="Year-long buildout of an always-on apartment command center. Hue, Sonos, ML autonomy, custom Alexa Skill, Game Day celebrations." />
 </svelte:head>
 
 <div class="page">
@@ -53,9 +53,9 @@
     <div class="eyebrow">Case study · Home Hub</div>
     <h1>An apartment that runs itself.</h1>
     <p class="lede">
-      A year-long buildout of an always-on command center for one apartment.
-      Lights, music, voice, vision, and game-day celebrations — all reacting to what's
-      actually happening in the room, all running on a single Latitude 7420 in the corner.
+      Year-long buildout of an always-on command center for one apartment.
+      Lights, music, voice, vision, and game-day celebrations. Everything reacts to
+      what's happening in the room. The whole thing runs on one Latitude 7420 in the corner.
     </p>
     <div class="meta">
       <span>Solo project</span><span>·</span>
@@ -74,7 +74,7 @@
     <div class="eyebrow">Walkthrough</div>
     <h2>60 seconds of the apartment behaving.</h2>
     <p class="section-lede">
-      Mode-switching, light response, the journal page, and the analytics SectorBoard — straight off the kiosk.
+      Mode-switching, light response, the journal page, and the analytics SectorBoard. Straight off the kiosk.
     </p>
     <GlassCard padding="0">
       <div class="video-placeholder">
@@ -88,7 +88,7 @@
         <div class="overlay">
           <div class="badge">Recording in progress</div>
           <div class="title">Walkthrough video</div>
-          <div class="hint">A live capture of the dashboard is being recorded — check back soon.</div>
+          <div class="hint">A live capture of the dashboard is being recorded. Check back soon.</div>
         </div>
       </div>
     </GlassCard>
@@ -99,7 +99,7 @@
     <div class="eyebrow">By the numbers</div>
     <h2>What's actually in there.</h2>
     <p class="section-lede">
-      Snapshots from the current build — every number is grounded in a shipped feature, not a wishlist.
+      Snapshots from the current build. Every number is grounded in a shipped feature.
     </p>
     <StatGrid {stats} />
   </section>
@@ -110,8 +110,8 @@
     <h2>One backend, many surfaces.</h2>
     <p class="section-lede">
       A FastAPI core fans state out over WebSocket and serves a SvelteKit static build. Services for Hue, Sonos,
-      ML, and the automation engine plug in as long-running async tasks. The PC agent and camera report inward;
-      the Alexa Lambda reaches in through a Cloudflare Tunnel.
+      ML, and the automation engine plug in as long-running async tasks. The PC agent and camera report inward.
+      The Alexa Lambda reaches in through a Cloudflare Tunnel.
     </p>
     <ArchitectureDiagram />
   </section>
@@ -125,26 +125,26 @@
       <GlassCard padding="28px">
         <h3>ConfidenceFusion: blending four signals into one mode.</h3>
         <p>
-          The apartment has four ways to guess what's going on — what processes are running on my PC,
-          what the camera sees (zone + posture + lux), what YAMNet hears in the room, and a small bank
+          The apartment has four ways to guess what's going on. Processes running on my PC,
+          what the camera sees (zone, posture, lux), what YAMNet hears in the room, and a small bank
           of learned rules. Each emits a confidence-scored opinion every second.
         </p>
         <p>
-          ConfidenceFusion blends them with weights that bend toward whichever signal has been
-          freshest, then applies a suppression layer for known footguns: late-night dev tools get
-          weighted down, stale process reports yield to fresher camera evidence, and a stamp
-          system keeps user-initiated overrides from getting steamrolled by autonomous pushes.
+          ConfidenceFusion blends them with weights that bend toward whichever signal has been freshest.
+          A suppression layer handles known footguns. Late-night dev tools get weighted down.
+          Stale process reports yield to fresher camera evidence. A stamp system keeps user-initiated
+          overrides from getting steamrolled by autonomous pushes.
         </p>
       </GlassCard>
 
       <GlassCard padding="28px">
         <h3>The autonomy gate: five ways the apartment changes its own mind.</h3>
         <p>
-          Five autonomous mode-setters can override what the user is doing — each one cost a small
-          amount of trust to ship, and each one has a kill switch.
+          Five autonomous mode-setters can override what the user is doing. Each one cost a small
+          amount of trust to ship. Each one has a kill switch.
         </p>
         <p>
-          Late-night rescue catches dev-tools-still-foreground-at-midnight and flips to relax.
+          Late-night rescue catches dev tools still in the foreground past midnight and flips to relax.
           The zone+posture rule reacts to "bed + reclined" sustained for 180 seconds.
           A watching-sleep-guard fires when you've been reclined in bed under the projector
           for 90 minutes (caught me asleep with YouTube on more than once).
@@ -156,13 +156,13 @@
         <h3>Game Day: from ESPN poll to bedroom lamp in &lt;1s.</h3>
         <p>
           On Colts game days the apartment auto-flips into a celebration palette 30 minutes before
-          kickoff. An ESPN poll watches play-by-play; scoring plays, big plays, and high-WPA momentum
-          swings fire a custom celebration — light sequences, TTS commentary, and a shifted
-          color base on the bedroom lamp.
+          kickoff. An ESPN poll watches play-by-play. Scoring plays, big plays, and high-WPA momentum
+          swings fire a custom celebration. Light sequences, TTS commentary, and a shifted color base
+          on the bedroom lamp.
         </p>
         <p>
           The celebration orchestrator runs custom sequences per play type with an 8-second cooldown
-          to prevent stacking. Spent enough time tuning latency that the lamp visibly reacts before
+          to prevent stacking. I spent enough time tuning latency that the lamp visibly reacts before
           the play-by-play commentary catches up.
         </p>
       </GlassCard>
@@ -170,12 +170,12 @@
       <GlassCard padding="28px">
         <h3>Living on a Latitude 7420: deploy.sh, systemd, and a kiosk.</h3>
         <p>
-          The whole thing runs on one Dell Latitude in the corner. Ubuntu 24.04, the backend
-          as a systemd user service, Firefox in kiosk mode via GNOME autostart, Pi-hole v6 in
-          Docker, a cloudflared tunnel exposing one subdomain to the public internet for Alexa.
+          The whole thing runs on one Dell Latitude in the corner. Ubuntu 24.04. The backend
+          runs as a systemd user service. Firefox runs in kiosk mode via GNOME autostart. Pi-hole v6
+          lives in Docker. A cloudflared tunnel exposes one subdomain to the public internet for Alexa.
         </p>
         <p>
-          The deploy script pulls fast-forward, conditionally reinstalls deps + rebuilds the
+          The deploy script pulls fast-forward, conditionally reinstalls deps and rebuilds the
           frontend, restarts the service, and health-checks. The kiosk auto-reloads when the
           WebSocket reports a new build_id. The whole pipeline runs from my dev box on the LAN
           in about 20 seconds.

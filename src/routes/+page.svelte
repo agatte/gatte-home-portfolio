@@ -21,8 +21,8 @@
     <div class="eyebrow">Portfolio · 2026</div>
     <h1>Anthony Gatte</h1>
     <p class="lede">
-      I build systems that quietly do the right thing without being asked.
-      Automation, applied ML, and a smart-home that runs itself.
+      I build automation and applied ML. Currently running a smart-home that
+      controls my apartment from a Latitude in the corner.
     </p>
     <div class="cta-row">
       <a href="/home-hub" class="btn primary">Read the Home Hub case study →</a>
@@ -34,16 +34,10 @@
 <div class="page">
   <section class="section about">
     <div class="eyebrow">About</div>
-    <h2>Practical systems, end to end.</h2>
+    <h2>About.</h2>
     <p>
-      I build automation tools, ship them to production, and keep them running. The current focus is the
-      <strong>Home Hub</strong> — a year-long buildout of an apartment-scale command center that listens
-      to my voice, watches the room with a camera, and chooses what the lights and music should do next.
-    </p>
-    <p>
-      Stack-wise I live in Python and SvelteKit, ship to FastAPI and SQLite, and lean on classical ML
-      (LightGBM, MediaPipe, YAMNet) instead of pulling in an LLM for every problem. Production from day one — even
-      for the side projects.
+      I build automation tools and keep them running in production. Mostly Python and SvelteKit,
+      classical ML when it fits, and a strong preference for shipping over speculating.
     </p>
   </section>
 
@@ -51,9 +45,9 @@
     <div class="eyebrow">Flagship project</div>
     <h2>Home Hub.</h2>
     <p class="section-lede">
-      An always-on personal command center for one apartment. Hue + Sonos + a Latitude running 24/7, with
-      mode-aware autopilot, voice control through a custom Alexa Skill, and Indianapolis Colts game-day
-      light celebrations.
+      An always-on personal command center for one apartment. Hue, Sonos, and a Latitude running 24/7.
+      Mode-aware autopilot, voice control through a custom Alexa Skill, and Indianapolis Colts
+      game-day light celebrations.
     </p>
 
     <GlassCard padding="0" interactive={true} href="/home-hub">
@@ -70,8 +64,8 @@
           <h3>An apartment that runs itself.</h3>
           <p>
             Four signals fuse into a single mode decision every second. Five autonomous mode-setters keep
-            it honest — including a watching-TV-in-bed-after-midnight guard that quietly puts the apartment
-            to sleep when you fall asleep with the projector on.
+            it honest. One of them notices when I've fallen asleep under the projector and shuts the
+            apartment down.
           </p>
           <StatGrid stats={teaserStats} />
           <div class="teaser-cta">Read the case study →</div>

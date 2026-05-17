@@ -168,7 +168,7 @@ function buildTree() {
             maxWidth: 920
           }
         },
-        'Automation, applied ML, and a smart-home that runs itself.'
+        'Automation and applied ML. Currently running a smart-home in the corner.'
       )
     ),
     // Footer chip row

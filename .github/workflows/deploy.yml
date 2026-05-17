@@ -39,7 +39,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # @cloudflare/kv-asset-handler@0.5+ (transitive via
+          # @sveltejs/adapter-cloudflare) requires node>=22. Bumping past
+          # what the package.json engines field declares (>=20) — local
+          # dev boxes are already on 22 so this just aligns CI with reality.
+          node-version: 22
           cache: npm
 
       - run: npm ci

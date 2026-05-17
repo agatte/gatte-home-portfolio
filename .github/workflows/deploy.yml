@@ -1,0 +1,59 @@
+name: Deploy to Cloudflare Pages
+
+# Direct-upload Pages projects (this one was created via
+# `wrangler pages deploy`) can't be retroactively connected to a Git
+# provider through the dashboard. This workflow replaces that integration:
+# every push to `main` builds the SvelteKit site and uploads it to the
+# existing `gatte-home-portfolio` Pages project using the same wrangler
+# command the README documents for manual deploys.
+#
+# Required repo secrets (Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN  — token with "Pages:Edit" permission on this
+#                           account (create via Cloudflare → My Profile →
+#                           API Tokens → "Edit Cloudflare Workers" template,
+#                           or a custom token with Account:Cloudflare Pages:Edit)
+#   CLOUDFLARE_ACCOUNT_ID — visible in any dashboard URL after `dash.cloudflare.com/`
+#
+# Manual `npx wrangler pages deploy` still works from a dev box — this
+# workflow is additive, not exclusive.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Cancel any in-flight deploy when a new push lands — no point uploading
+# an older commit on top of a newer one.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write  # wrangler-action creates a GitHub Deployment row
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >-
+            pages deploy .svelte-kit/cloudflare
+            --project-name=gatte-home-portfolio
+            --branch=main
+            --commit-hash=${{ github.sha }}
+            --commit-message=${{ toJSON(github.event.head_commit.message) }}
